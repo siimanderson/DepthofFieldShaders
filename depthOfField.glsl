@@ -13,6 +13,8 @@ int Radius = 3 {
     "step": 1
 };
 
+uniform vec2 AtmosphereRange = vec2(25.0, 300.0);
+
 out vec4 Output;
 
 ##GLSL 
@@ -25,7 +27,9 @@ vec4 box(int radius, float zStart, float zEnd) {
 
     for (int x = -radius; x <= radius; x++) {
         for (int y = -radius; y <= radius; y++) {
-            float zCoordinate = texture(ColorTarget, f_texcoord + u_texel*vec2(x,y)).z;
+            float zCoordinate = texture(ColorTarget, f_texcoord + u_texel*vec2(x,y)).r;
+            float depthRemaped = saturate(remap(zCoordinate, AtmosphereRange.x, AtmosphereRange.y, 0.0, 1.0));
+
             if (zCoordinate <= oneThirdOfTheWay){
                 sum += texture(ColorTarget, f_texcoord + u_texel*vec2(x,y));
             }
@@ -64,7 +68,9 @@ vec3 viewDirection(vec2 texcoord)
 void main () {
 
     vec3 viewDir = viewDirection(f_texcoord);
-	vec3 viewPos = texture(AOVTarget, f_texcoord).r * viewDir;
+    float DepthInMayaU = texture(AOVTarget, f_texcoord).r;
+    float depthRemaped = saturate(remap(DepthInMayaU, AtmosphereRange.x, AtmosphereRange.y, 0.0, 1.0));
+	vec3 viewPos = depthRemaped * viewDir;
 
     vec4 depthStart = vec4(viewPos,1.0);
     vec4 depthEnd = vec4(viewPos + maxDepth, 1.0);
