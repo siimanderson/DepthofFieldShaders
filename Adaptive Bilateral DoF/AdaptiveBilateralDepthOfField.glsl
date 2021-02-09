@@ -27,12 +27,12 @@ uint FocalLengthOfLens = 0 {
     "toggle": ["28mm", "50mm", "100mm"]
 };
 
-float maxDepth = 1.0 {
+float BlurDistance = 1.0 {
 	"min": 0.01,
 	"max": 1.0
 }; 
 
-uniform vec2 DepthRange = vec2(25.0, 300.0);
+uniform vec2 DepthRange = vec2(0.01, 100.0);
 
 out vec4 Output;
 
@@ -40,16 +40,16 @@ out vec4 Output;
 
 float CirceOfConfusion(vec2 pixelCoordinate, float FocalLength){
     float depthInMayaUnits = texture(AOVTarget, pixelCoordinate).r;
-    float remapedDepth = saturate(remap(depthInMayaUnits, DepthRange.x, DepthRange.y, 0.0, 1.0));
+    float remapedDepth = remap(depthInMayaUnits, DepthRange.x, DepthRange.y, 0.0, 1.0);
 
-    float topPartOfEquation = LensDiameter * FocalLength * (maxDepth - remapedDepth);
-    float lowerPartOfEquation = maxDepth * (remapedDepth - FocalLength);
+    float topPartOfEquation = LensDiameter * FocalLength * (BlurDistance - remapedDepth);
+    float lowerPartOfEquation = BlurDistance * (remapedDepth - FocalLength);
 
     return abs(topPartOfEquation / lowerPartOfEquation);
 }
 
 vec3 equationBilateral(float distance, float depthCenterPixel, float depthOtherPixel){
-    return normalize(vec3(exp(-(pow(distance, 2) / 2 * pow(StandardDeviation1, 2))) * exp(-(pow(depthOtherPixel - depthCenterPixel, 2) / 2 * pow(StandardDeviation2, 2)))));
+    return vec3(exp(-(pow(distance, 2) / 2 * pow(StandardDeviation1, 2))) * exp(-(pow(depthOtherPixel - depthCenterPixel, 2) / 2 * pow(StandardDeviation2, 2))));
 }
 
 vec4 pixelColor(float CoC, vec4 pixel){
@@ -57,8 +57,8 @@ vec4 pixelColor(float CoC, vec4 pixel){
     for (float x = -CoC; x <= CoC; x++) {
         for (float y = -CoC; y <= CoC; y++) {
             vec4 qTexel = texture(ColorTarget, f_texcoord + u_texel*vec2(x,y));
-            float lengthBetweenPixels = length(vec2(qTexel.x - pixel.x, qTexel.y - pixel.y));
-            vec3 Bilateral = equationBilateral(lengthBetweenPixels, pixel.z, qTexel.z);
+            float distanceBetweenPixels = length(vec2(qTexel.x - pixel.x, qTexel.y - pixel.y));
+            vec3 Bilateral = equationBilateral(distanceBetweenPixels, pixel.z, qTexel.z);
             sum += texture(ColorTarget, f_texcoord + u_texel * vec2(x, y) * Bilateral.xy);
         }
     }
@@ -84,16 +84,16 @@ void main(){
 
     vec4 pixel = vec4(0);
     //pixelDepth
+    
     float pDepth = texture(AOVTarget, f_texcoord).r;
-    float pRemapedDepth = saturate(remap(pDepth, DepthRange.x, DepthRange.y, 0.0, 1.0));
+    float pRemapedDepth = remap(pDepth, DepthRange.x, DepthRange.y, 0.0, 1.0);
 
-    if(pRemapedDepth < maxDepth){
+    if(pRemapedDepth > BlurDistance){
         pixel = pixelColor(CoC, texture(ColorTarget, f_texcoord + u_texel));
     }
     else {
         pixel = texture(ColorTarget, f_texcoord + u_texel); 
-    }
-    
+    }   
 
     Output = pixel;
 }
