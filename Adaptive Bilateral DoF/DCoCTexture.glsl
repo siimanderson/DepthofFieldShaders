@@ -48,6 +48,7 @@ void main(){
     float CoC = CirceOfConfusion(f_texcoord, focalLength);
 
     vec4 AOVoutput = texture(AOVTarget, f_texcoord);
+    AOVoutput.a = CoC;
 
     Output = AOVoutput;
 }
