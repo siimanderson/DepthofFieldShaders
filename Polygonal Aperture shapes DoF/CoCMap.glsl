@@ -1,49 +1,63 @@
-sampler2D AOVTarget {
-    "addressU": "MIRROR",
-    "addressV": "MIRROR"
-};
+/* interface
+outputs = ["COCMap"]
 
-uint FocalLengthOfLens = 0.0 {
-    "toggle": ["28mm", "50mm", "100mm"]
-};
+[[textures]]
+name = "ColorTarget"
+addressU = "clamp"
+addressV = "clamp"
+minFilter = "linear"
+magFilter = "linear"
 
-float FocalDistance = 0.0 {
-    "min": 0.0,
-    "max": 1.0
-};
+[[textures]]
+name = "AOVTarget"
+addressU = "clamp"
+addressV = "clamp"
+minFilter = "linear"
+magFilter = "linear"
 
-float ApertureSize = 0.5 {
-    "min": 0.0,
-    "max": 1.0
-};
+[[uniforms]]
+name = "FocalLengthOfLens"
+type = "float"
+min = 0.01
+max = 0.05
 
-int MaximumCoCDiameter = 1 {
-    "min": 1,
-    "max": 30
-};
+[[uniforms]]
+name = "FocalDistance"
+type = "float"
+min = 0.1
+max = 1.0
 
-out vec4 Output;
+[[uniforms]]
+name = "ApertureSize"
+type = "float"
+min = 0.001
+max = 0.04
 
-##GLSL
+[[uniforms]]
+name = "MaximumCoCDiameter"
+type = "float"
+min = 0.0
+max = 1.0
+*/
+
+uniform sampler2D ColorTarget;
+uniform sampler2D AOVTarget;
+
+uniform float FocalLengthOfLens;
+uniform float FocalDistance;
+uniform float ApertureSize;
+uniform float MaximumCoCDiameter;
+
+out vec4 COCMap;
 
 void main(){
-    float focalLength = 0;
-
-    if (FocalLengthOfLens == 0){
-        focalLength = 0.28;
-    }
-    else if (FocalLengthOfLens == 1){
-        focalLength = 0.50;
-    }
-    else {
-        focalLength = 1.0;
-    }
-
+    
     float FarClipDistance = u_farClip;
 
-    float SceneDepth = texture(AOVTarget, f_texcoord).r * FarClipDistance;
+    float SceneDepth = texture(AOVTarget, f_texcoord).r;
+    float remaped = remap(SceneDepth, 25.0, 100.0, 0.0, 1.0);
 
-    float CoCDiameter = ApertureSize * (abs(SceneDepth - FocalDistance) / SceneDepth) * (focalLength / (FocalDistance - focalLength));
+    float CoCDiameter = ApertureSize * (abs(remaped - FocalDistance) / remaped) * (FocalLengthOfLens / (FocalDistance - FocalLengthOfLens));
 
     float sensorHeight = 0.024;
 
@@ -51,7 +65,7 @@ void main(){
 
     float blurFactor = clamp(percentOfSensor, 0.0, MaximumCoCDiameter);
 
-    vec3 ModifiedOutput = texture(AOVTarget, f_texcoord).rgb;
+    vec3 Color = texture(ColorTarget, f_texcoord).xyz;
 
-    Output = vec4(ModifiedOutput, blurFactor);
+    COCMap = vec4(Color, blurFactor);
 }

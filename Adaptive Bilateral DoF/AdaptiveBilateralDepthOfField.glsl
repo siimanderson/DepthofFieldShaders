@@ -12,15 +12,15 @@ name = "DCoC"
 
 [[uniforms]]
 name = "SigmaS"
-type = "float"
-min = 1.0
-max = 30.0
+type = "int"
+min = 1
+max = 20
 
 [[uniforms]]
 name = "SigmaL"
-type = "float"
-min = 1.0
-max = 30.0
+type = "int"
+min = 1
+max = 20
 
 [[uniforms]]
 name = "FocusDistance"
@@ -40,33 +40,43 @@ uniform float FocusDistance;
 
 out vec4 Output;
 
-//#define NORMALIZATIONFACTOR 0.39894;
-
-float equationBilateral(float distanceBetweenPixels, float pixelDepth, float qPixelDepth){
+float equationBilateral(float distanceBetweenPixels, float pixelDepth, float qPixelDepth, float offset){
     float s = exp(-(distanceBetweenPixels * distanceBetweenPixels) / (2.0 * SigmaS * SigmaS));
-    float v = exp(-(pow(qPixelDepth - pixelDepth, 2) / (2.0 * SigmaL * SigmaL)));
+    float v = exp(-(pow(qPixelDepth - pixelDepth - offset, 2) / (2.0 * SigmaL * SigmaL)));
     return s * v;
 }
 
-vec4 pixelColor(float CoC, vec4 pixel){
+vec4 pixelColor(float CoC, vec4 pixel, float offset){
     vec4 sum = vec4(0);
-    float NORMALIZATIONFACTOR = 0.39894;
+    float bilateralValues = 0.0;
+    
     for (float x = -CoC; x <= CoC; x++) {
         for (float y = -CoC; y <= CoC; y++) {
-            //ivec2 loc = ivec2(int(x), int(y));
-            //vec4 qPixel = texelFetch(ColorTarget, loc, 0);
-            vec4 qPixel = texture(ColorTarget, vec2(x / 10.0, y / 10.0));
-            //remap the qPixel values to be between 0 and 1
-            float distanceBetweenPixels = length(vec2(qPixel.x - pixel.x, qPixel.y - pixel.y));
+            vec4 qPixel = texture(ColorTarget, f_texcoord + vec2(x, y)* u_texel);
+            float distanceBetweenPixels = length(vec2(qPixel.x - pixel.x, qPixel.y - pixel.y));//Use maybe abs?
 
-            float Bilateral = equationBilateral(distanceBetweenPixels, pixel.z, qPixel.z)*NORMALIZATIONFACTOR;
+            float Bilateral = equationBilateral(distanceBetweenPixels, pixel.z, qPixel.z, offset);
 
-            //float Sum = Bilateral.x + Bilateral.y + Bilateral.z;
+            float normalise = 1.0/(sqrt(2*PI)*SigmaS);
             
             sum += qPixel * Bilateral;
+            bilateralValues += Bilateral;
         }
     }
-    return sum;
+    return sum / bilateralValues;
+}
+
+float meanDepth(float CoC) {
+    float sum = 0.0;
+    int numberOfValues = 0;
+
+    for (float x = -CoC; x <= CoC; x++) {
+        for (float y = -CoC; y <= CoC; y++) {
+            sum += texture(ColorTarget, f_texcoord + vec2(x, y)* u_texel).z;
+            numberOfValues++;
+        }
+    }
+    return sum / numberOfValues;
 }
 
 void main(){
@@ -74,16 +84,19 @@ void main(){
     vec4 pixel = vec4(0.0);
     //pixelDepth  
     float pDepth = texture(AOVTarget, f_texcoord).r;
-    float pRemapedDepth = 1.0 / pDepth;
+    float pRemapedDepth = remap(pDepth, 25.0, 100.0, 0.0, 1.0);
     // Pixel Circle of Confusion
-    float CoC = texture(DCoC, f_texcoord).x;
+    float CoC = texture(DCoC, f_texcoord).x * 5.0;
     // Pixel color
     vec4 color = texture(ColorTarget, f_texcoord);
-    
+
     if (pRemapedDepth > FocusDistance) {
-        pixel = pixelColor(CoC * 10, color);
+        float offset = meanDepth(CoC*5.0) - color.z;
+        pixel = pixelColor(CoC, color, offset);
     } else {
         pixel = color;
     }
+    //float offset = meanDepth(CoC*5.0) - color.z;
+    //pixel = pixelColor(CoC, color, 0);
     Output = pixel;
 }

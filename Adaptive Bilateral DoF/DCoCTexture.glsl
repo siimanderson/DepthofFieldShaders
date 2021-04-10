@@ -38,6 +38,7 @@ out vec4 DCoC;
 float CirceOfConfusion(vec2 pixelCoordinate, float focalLength){
     float depthInMayaUnits = texture(AOVTarget, pixelCoordinate).r;
     float remapedDepth = 1.0 / depthInMayaUnits;
+    //float remapedDepth = remap(depthInMayaUnits, 0.0, 100.0, 0.0, 1.0);
 
     float topPartOfEquation = LensDiameter * focalLength * (FocusRegionDepth - remapedDepth);
     float lowerPartOfEquation = FocusRegionDepth * (remapedDepth - focalLength);
