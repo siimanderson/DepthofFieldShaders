@@ -1,0 +1,663 @@
+{
+  "root": {
+    "name": "",
+    "flags": 0,
+    "uiPositionX": 0,
+    "uiPositionY": 0,
+    "plugs": {
+
+    },
+    "nodes": [
+      {
+        "name": "_settings",
+        "flags": 1,
+        "uiPositionX": 0,
+        "uiPositionY": 0,
+        "plugs": {
+          "projectDirectory": {
+            "name": "projectDirectory",
+            "valueType": "string",
+            "flags": 0,
+            "direction": 0,
+            "evaluationMode": 0,
+            "expression": "",
+            "uiOrder": 0,
+            "constantValue": ""
+          },
+          "worldScale_": {
+            "name": "worldScale_",
+            "valueType": "float",
+            "flags": 0,
+            "direction": 0,
+            "evaluationMode": 0,
+            "expression": "",
+            "uiOrder": 0,
+            "constantValue": 1.000000
+          },
+          "useCustomResolution": {
+            "name": "useCustomResolution",
+            "valueType": "bool",
+            "flags": 0,
+            "direction": 0,
+            "evaluationMode": 0,
+            "expression": "",
+            "uiOrder": 0,
+            "constantValue": false
+          },
+          "imageWidth": {
+            "name": "imageWidth",
+            "valueType": "int",
+            "flags": 0,
+            "direction": 0,
+            "evaluationMode": 0,
+            "expression": "",
+            "uiOrder": 0,
+            "constantValue": 1920
+          },
+          "imageHeight": {
+            "name": "imageHeight",
+            "valueType": "int",
+            "flags": 0,
+            "direction": 0,
+            "evaluationMode": 0,
+            "expression": "",
+            "uiOrder": 0,
+            "constantValue": 1080
+          },
+          "startFrame": {
+            "name": "startFrame",
+            "valueType": "int",
+            "flags": 0,
+            "direction": 0,
+            "evaluationMode": 0,
+            "expression": "",
+            "uiOrder": 0,
+            "constantValue": 0
+          },
+          "endFrame": {
+            "name": "endFrame",
+            "valueType": "int",
+            "flags": 0,
+            "direction": 0,
+            "evaluationMode": 0,
+            "expression": "",
+            "uiOrder": 0,
+            "constantValue": 0
+          },
+          "byFrame": {
+            "name": "byFrame",
+            "valueType": "int",
+            "flags": 0,
+            "direction": 0,
+            "evaluationMode": 0,
+            "expression": "",
+            "uiOrder": 0,
+            "constantValue": 0
+          },
+          "numOfPadding": {
+            "name": "numOfPadding",
+            "valueType": "int",
+            "flags": 0,
+            "direction": 0,
+            "evaluationMode": 0,
+            "expression": "",
+            "uiOrder": 0,
+            "constantValue": 0
+          },
+          "renumberFrames": {
+            "name": "renumberFrames",
+            "valueType": "bool",
+            "flags": 0,
+            "direction": 0,
+            "evaluationMode": 0,
+            "expression": "",
+            "uiOrder": 0,
+            "constantValue": false
+          },
+          "newFrameNumber": {
+            "name": "newFrameNumber",
+            "valueType": "int",
+            "flags": 0,
+            "direction": 0,
+            "evaluationMode": 0,
+            "expression": "",
+            "uiOrder": 0,
+            "constantValue": 0
+          }
+        },
+        "nodes": [
+
+        ],
+        "connections": [
+
+        ]
+      },
+      {
+        "name": "_globals",
+        "flags": 1,
+        "uiPositionX": 0,
+        "uiPositionY": 0,
+        "plugs": {
+
+        },
+        "nodes": [
+
+        ],
+        "connections": [
+
+        ]
+      },
+      {
+        "name": "AOVTarget",
+        "flags": 0,
+        "uiPositionX": 65,
+        "uiPositionY": -210,
+        "opTypeName": "io.artineering.flair.Read",
+        "plugs": {
+          "imageFilePath": {
+            "name": "imageFilePath",
+            "valueType": "string",
+            "flags": 0,
+            "direction": 0,
+            "evaluationMode": 0,
+            "expression": "",
+            "uiOrder": 0,
+            "constantValue": "C:/Users/siim95/Desktop/Flair alpha/aovs/Spherebot_Flair/Spherebot_720.shotcam.aovTarget.0063.exr"
+          },
+          "requestedFormat": {
+            "name": "requestedFormat",
+            "valueType": "int",
+            "flags": 0,
+            "direction": 0,
+            "evaluationMode": 0,
+            "expression": "",
+            "uiOrder": 0,
+            "constantValue": 0
+          },
+          "C": {
+            "name": "C",
+            "valueType": "Image",
+            "flags": 2,
+            "direction": 1,
+            "evaluationMode": 1,
+            "expression": "",
+            "uiOrder": 0
+          }
+        },
+        "nodes": [
+
+        ],
+        "connections": [
+
+        ]
+      },
+      {
+        "name": "ColorTarget",
+        "flags": 0,
+        "uiPositionX": -250,
+        "uiPositionY": -190,
+        "opTypeName": "io.artineering.flair.Read",
+        "plugs": {
+          "imageFilePath": {
+            "name": "imageFilePath",
+            "valueType": "string",
+            "flags": 0,
+            "direction": 0,
+            "evaluationMode": 0,
+            "expression": "",
+            "uiOrder": 0,
+            "constantValue": "C:/Users/siim95/Desktop/Flair alpha/aovs/Spherebot_Flair/Spherebot_720.shotcam.colorTarget.0063.exr"
+          },
+          "requestedFormat": {
+            "name": "requestedFormat",
+            "valueType": "int",
+            "flags": 0,
+            "direction": 0,
+            "evaluationMode": 0,
+            "expression": "",
+            "uiOrder": 0,
+            "constantValue": 0
+          },
+          "C": {
+            "name": "C",
+            "valueType": "Image",
+            "flags": 2,
+            "direction": 1,
+            "evaluationMode": 1,
+            "expression": "",
+            "uiOrder": 0
+          }
+        },
+        "nodes": [
+
+        ],
+        "connections": [
+
+        ]
+      },
+      {
+        "name": "CoCmap",
+        "flags": 0,
+        "uiPositionX": -270,
+        "uiPositionY": -35,
+        "opTypeName": "io.artineering.flair.ShaderOp",
+        "plugs": {
+          "Source Code": {
+            "name": "Source Code",
+            "valueType": "string",
+            "flags": 0,
+            "direction": 0,
+            "evaluationMode": 0,
+            "expression": "",
+            "uiOrder": 0,
+            "constantValue": "/* interface\noutputs = [\"COCMap\"]\n\n[[textures]]\nname = \"ColorTarget\"\naddressU = \"clamp\"\naddressV = \"clamp\"\nminFilter = \"linear\"\nmagFilter = \"linear\"\n\n[[textures]]\nname = \"AOVTarget\"\naddressU = \"clamp\"\naddressV = \"clamp\"\nminFilter = \"linear\"\nmagFilter = \"linear\"\n\n[[uniforms]]\nname = \"FocalLengthOfLens\"\ntype = \"float\"\nmin = 0.01\nmax = 0.05\n\n[[uniforms]]\nname = \"FocalDistance\"\ntype = \"float\"\nmin = 0.1\nmax = 1.0\n\n[[uniforms]]\nname = \"ApertureSize\"\ntype = \"float\"\nmin = 0.001\nmax = 0.04\n\n[[uniforms]]\nname = \"MaximumCoCDiameter\"\ntype = \"float\"\nmin = 0.0\nmax = 1.0\n*/\n\nuniform sampler2D ColorTarget;\nuniform sampler2D AOVTarget;\n\nuniform float FocalLengthOfLens;\nuniform float FocalDistance;\nuniform float ApertureSize;\nuniform float MaximumCoCDiameter;\n\nout vec4 COCMap;\n\nvoid main(){\n    \n    float FarClipDistance = u_farClip;\n\n    float SceneDepth = texture(AOVTarget, f_texcoord).r;\n    float remaped = remap(SceneDepth, 25.0, 100.0, 0.0, 1.0);\n\n    float CoCDiameter = ApertureSize * (abs(remaped - FocalDistance) / remaped) * (FocalLengthOfLens / (FocalDistance - FocalLengthOfLens));\n\n    float sensorHeight = 0.024;\n\n    float percentOfSensor = CoCDiameter / sensorHeight;\n\n    float blurFactor = clamp(percentOfSensor, 0.0, MaximumCoCDiameter);\n\n    vec3 Color = texture(ColorTarget, f_texcoord).xyz;\n\n    COCMap = vec4(Color, blurFactor);\n}"
+          },
+          "Source File Name": {
+            "name": "Source File Name",
+            "valueType": "string",
+            "flags": 0,
+            "direction": 0,
+            "evaluationMode": 0,
+            "expression": "",
+            "uiOrder": 0,
+            "constantValue": "C:/Users/siim95/Desktop/Flair alpha/DepthOfFieldSiim/DepthofFieldShaders/Polygonal Aperture shapes DoF/CoCMap.glsl"
+          },
+          "Interface Description": {
+            "name": "Interface Description",
+            "valueType": "string",
+            "flags": 0,
+            "direction": 0,
+            "evaluationMode": 0,
+            "expression": "",
+            "uiOrder": 0,
+            "constantValue": "\noutputs = [\"COCMap\"]\n\n[[textures]]\nname = \"ColorTarget\"\naddressU = \"clamp\"\naddressV = \"clamp\"\nminFilter = \"linear\"\nmagFilter = \"linear\"\n\n[[textures]]\nname = \"AOVTarget\"\naddressU = \"clamp\"\naddressV = \"clamp\"\nminFilter = \"linear\"\nmagFilter = \"linear\"\n\n[[uniforms]]\nname = \"FocalLengthOfLens\"\ntype = \"float\"\nmin = 0.01\nmax = 0.05\n\n[[uniforms]]\nname = \"FocalDistance\"\ntype = \"float\"\nmin = 0.1\nmax = 1.0\n\n[[uniforms]]\nname = \"ApertureSize\"\ntype = \"float\"\nmin = 0.001\nmax = 0.04\n\n[[uniforms]]\nname = \"MaximumCoCDiameter\"\ntype = \"float\"\nmin = 0.0\nmax = 1.0\n"
+          },
+          "COCMap": {
+            "name": "COCMap",
+            "valueType": "Image",
+            "flags": 2,
+            "direction": 1,
+            "evaluationMode": 1,
+            "expression": "",
+            "uiOrder": 0
+          },
+          "i:ColorTarget": {
+            "name": "i:ColorTarget",
+            "valueType": "Image",
+            "flags": 2,
+            "direction": 0,
+            "evaluationMode": 2,
+            "expression": "",
+            "uiOrder": 0
+          },
+          "i:AOVTarget": {
+            "name": "i:AOVTarget",
+            "valueType": "Image",
+            "flags": 2,
+            "direction": 0,
+            "evaluationMode": 2,
+            "expression": "",
+            "uiOrder": 0
+          },
+          "i:FocalLengthOfLens": {
+            "name": "i:FocalLengthOfLens",
+            "valueType": "float",
+            "flags": 0,
+            "direction": 0,
+            "evaluationMode": 0,
+            "expression": "",
+            "uiOrder": 0,
+            "constantValue": 0.01900000
+          },
+          "i:FocalDistance": {
+            "name": "i:FocalDistance",
+            "valueType": "float",
+            "flags": 0,
+            "direction": 0,
+            "evaluationMode": 0,
+            "expression": "",
+            "uiOrder": 0,
+            "constantValue": 0.3070000
+          },
+          "i:ApertureSize": {
+            "name": "i:ApertureSize",
+            "valueType": "float",
+            "flags": 0,
+            "direction": 0,
+            "evaluationMode": 0,
+            "expression": "",
+            "uiOrder": 0,
+            "constantValue": 0.01600000
+          },
+          "i:MaximumCoCDiameter": {
+            "name": "i:MaximumCoCDiameter",
+            "valueType": "float",
+            "flags": 0,
+            "direction": 0,
+            "evaluationMode": 0,
+            "expression": "",
+            "uiOrder": 0,
+            "constantValue": 0.007000000
+          }
+        },
+        "nodes": [
+
+        ],
+        "connections": [
+
+        ]
+      },
+      {
+        "name": "FirstPass",
+        "flags": 0,
+        "uiPositionX": -50,
+        "uiPositionY": -55,
+        "opTypeName": "io.artineering.flair.ShaderOp",
+        "plugs": {
+          "Source Code": {
+            "name": "Source Code",
+            "valueType": "string",
+            "flags": 0,
+            "direction": 0,
+            "evaluationMode": 0,
+            "expression": "",
+            "uiOrder": 0,
+            "constantValue": "/* interface\noutputs = [\"Output\"]\n\n[[textures]]\nname = \"CoCMap\"\naddressU = \"clamp\"\naddressV = \"clamp\"\nminFilter = \"linear\"\nmagFilter = \"linear\"\n\n[[textures]]\nname = \"ColorTarget\"\naddressU = \"clamp\"\naddressV = \"clamp\"\nminFilter = \"linear\"\nmagFilter = \"linear\"\n\n[[textures]]\nname = \"DepthSample\"\naddressU = \"clamp\"\naddressV = \"clamp\"\nminFilter = \"linear\"\nmagFilter = \"linear\"\n\n[[uniforms]]\nname = \"angle\"\ntype = \"float\"\nmin = 0.0\nmax = 90.0\n*/\n/* sampler2D CoCMap {\n    \"addressU\": \"CLAMP\",\n    \"addressV\": \"CLAMP\",\n    \"minFilter\": \"LINEAR\",\n\t\"magFilter\": \"LINEAR\"\n};\n\nsampler2D ColorTarget {\n    \"addressU\": \"CLAMP\",\n    \"addressV\": \"CLAMP\",\n    \"minFilter\": \"LINEAR\",\n\t\"magFilter\": \"LINEAR\"\n};\n\nsampler2D DepthSample {\n    \"addressU\": \"CLAMP\",\n    \"addressV\": \"CLAMP\",\n    \"minFilter\": \"LINEAR\",\n\t\"magFilter\": \"LINEAR\"\n};\n\nfloat angle = 45.0 {\n    \"min\": 0.0,\n    \"max\": 180.0\n};\n\nout vec4 Output;\n\n##GLSL */\n\nuniform sampler2D CoCMap;\nuniform sampler2D ColorTarget;\nuniform sampler2D DepthSample;\n\nuniform float angle;\n\nout vec4 Output;\n\nvoid OffSetData(float angle, inout vec2 vec2Array[13]){\n    float aspectRatio = u_resolution.x / u_resolution.y;\n    //vec2 vec2Array[13];\n    float radius = 0.5;\n\n    vec2 pt = vec2(radius * cos(angle), radius * sin(angle));\n\n    pt.x = pt.x / aspectRatio;\n\n    float numSamples = 13.0;\n    for(int i = 0; i < numSamples; i++){\n        float t = i / (numSamples - 1.0);\n        vec2Array[i] = lerp(-pt, pt, t);\n    }\n    \n}\n\nvoid main(){\n    vec2 Offsets[13];\n    OffSetData(angle, Offsets);\n\n    const float bleedingBias = 0.02;\n    //const float bleedingBias = 5.0;\n    const float bleedingMult = 30.0;\n\n    vec4 centerPixel = texture(CoCMap, f_texcoord);\n    float centerDepth = texture(DepthSample, f_texcoord).r;\n\n    vec4 color = vec4(0.0);\n    float totalWeight = 0.0;\n\n    float numSamples = 13.0;\n    for(int t = 0; t < numSamples; t++){\n        vec2 offset = Offsets[t];\n\n        vec2 sampleCoords = f_texcoord + offset * centerPixel.a;\n\n        vec4 samplePixel = texture(CoCMap, sampleCoords);\n        float sampleDepth = texture(DepthSample, sampleCoords).r;\n        vec4 sampleColor = texture(ColorTarget, sampleCoords);\n\n        float weight = sampleDepth < centerDepth ? samplePixel.a * bleedingMult : 1.0;\n        weight = (centerPixel.a > samplePixel.a + bleedingBias) ? weight : 1.0;\n        weight = saturate(weight);\n\n        color += sampleColor * weight;\n        totalWeight += weight;\n    }\n\n    Output = color / totalWeight;\n}"
+          },
+          "Source File Name": {
+            "name": "Source File Name",
+            "valueType": "string",
+            "flags": 0,
+            "direction": 0,
+            "evaluationMode": 0,
+            "expression": "",
+            "uiOrder": 0,
+            "constantValue": "C:/Users/siim95/Desktop/Flair alpha/DepthOfFieldSiim/DepthofFieldShaders/Polygonal Aperture shapes DoF/PolygonalAperturesBokehDoF.glsl"
+          },
+          "Interface Description": {
+            "name": "Interface Description",
+            "valueType": "string",
+            "flags": 0,
+            "direction": 0,
+            "evaluationMode": 0,
+            "expression": "",
+            "uiOrder": 0,
+            "constantValue": "\noutputs = [\"Output\"]\n\n[[textures]]\nname = \"CoCMap\"\naddressU = \"clamp\"\naddressV = \"clamp\"\nminFilter = \"linear\"\nmagFilter = \"linear\"\n\n[[textures]]\nname = \"ColorTarget\"\naddressU = \"clamp\"\naddressV = \"clamp\"\nminFilter = \"linear\"\nmagFilter = \"linear\"\n\n[[textures]]\nname = \"DepthSample\"\naddressU = \"clamp\"\naddressV = \"clamp\"\nminFilter = \"linear\"\nmagFilter = \"linear\"\n\n[[uniforms]]\nname = \"angle\"\ntype = \"float\"\nmin = 0.0\nmax = 90.0\n"
+          },
+          "Output": {
+            "name": "Output",
+            "valueType": "Image",
+            "flags": 2,
+            "direction": 1,
+            "evaluationMode": 1,
+            "expression": "",
+            "uiOrder": 0
+          },
+          "i:ColorTarget": {
+            "name": "i:ColorTarget",
+            "valueType": "Image",
+            "flags": 2,
+            "direction": 0,
+            "evaluationMode": 2,
+            "expression": "",
+            "uiOrder": 0
+          },
+          "i:angle": {
+            "name": "i:angle",
+            "valueType": "float",
+            "flags": 0,
+            "direction": 0,
+            "evaluationMode": 0,
+            "expression": "",
+            "uiOrder": 0,
+            "constantValue": 45.00000
+          },
+          "i:CoCMap": {
+            "name": "i:CoCMap",
+            "valueType": "Image",
+            "flags": 2,
+            "direction": 0,
+            "evaluationMode": 2,
+            "expression": "",
+            "uiOrder": 0
+          },
+          "i:DepthSample": {
+            "name": "i:DepthSample",
+            "valueType": "Image",
+            "flags": 2,
+            "direction": 0,
+            "evaluationMode": 2,
+            "expression": "",
+            "uiOrder": 0
+          }
+        },
+        "nodes": [
+
+        ],
+        "connections": [
+
+        ]
+      },
+      {
+        "name": "Display",
+        "flags": 0,
+        "uiPositionX": -85,
+        "uiPositionY": 240,
+        "opTypeName": "io.artineering.flair.DisplayOp",
+        "plugs": {
+          "Input": {
+            "name": "Input",
+            "valueType": "Image",
+            "flags": 2,
+            "direction": 0,
+            "evaluationMode": 2,
+            "expression": "",
+            "uiOrder": 0
+          },
+          "Output": {
+            "name": "Output",
+            "valueType": "Image",
+            "flags": 2,
+            "direction": 1,
+            "evaluationMode": 1,
+            "expression": "",
+            "uiOrder": 0
+          }
+        },
+        "nodes": [
+
+        ],
+        "connections": [
+
+        ]
+      },
+      {
+        "name": "SecondPass",
+        "flags": 0,
+        "uiPositionX": -50,
+        "uiPositionY": 35,
+        "opTypeName": "io.artineering.flair.ShaderOp",
+        "plugs": {
+          "Source Code": {
+            "name": "Source Code",
+            "valueType": "string",
+            "flags": 0,
+            "direction": 0,
+            "evaluationMode": 0,
+            "expression": "",
+            "uiOrder": 0,
+            "constantValue": "/* interface\noutputs = [\"Output\"]\n\n[[textures]]\nname = \"CoCMap\"\naddressU = \"clamp\"\naddressV = \"clamp\"\nminFilter = \"linear\"\nmagFilter = \"linear\"\n\n[[textures]]\nname = \"ColorTarget\"\naddressU = \"clamp\"\naddressV = \"clamp\"\nminFilter = \"linear\"\nmagFilter = \"linear\"\n\n[[textures]]\nname = \"DepthSample\"\naddressU = \"clamp\"\naddressV = \"clamp\"\nminFilter = \"linear\"\nmagFilter = \"linear\"\n\n[[uniforms]]\nname = \"angle\"\ntype = \"float\"\nmin = 0.0\nmax = 90.0\n*/\n/* sampler2D CoCMap {\n    \"addressU\": \"CLAMP\",\n    \"addressV\": \"CLAMP\",\n    \"minFilter\": \"LINEAR\",\n\t\"magFilter\": \"LINEAR\"\n};\n\nsampler2D ColorTarget {\n    \"addressU\": \"CLAMP\",\n    \"addressV\": \"CLAMP\",\n    \"minFilter\": \"LINEAR\",\n\t\"magFilter\": \"LINEAR\"\n};\n\nsampler2D DepthSample {\n    \"addressU\": \"CLAMP\",\n    \"addressV\": \"CLAMP\",\n    \"minFilter\": \"LINEAR\",\n\t\"magFilter\": \"LINEAR\"\n};\n\nfloat angle = 45.0 {\n    \"min\": 0.0,\n    \"max\": 180.0\n};\n\nout vec4 Output;\n\n##GLSL */\n\nuniform sampler2D CoCMap;\nuniform sampler2D ColorTarget;\nuniform sampler2D DepthSample;\n\nuniform float angle;\n\nout vec4 Output;\n\nvoid OffSetData(float angle, inout vec2 vec2Array[13]){\n    float aspectRatio = u_resolution.x / u_resolution.y;\n    //vec2 vec2Array[13];\n    float radius = 0.5;\n\n    vec2 pt = vec2(radius * cos(angle), radius * sin(angle));\n\n    pt.x = pt.x / aspectRatio;\n\n    float numSamples = 13.0;\n    for(int i = 0; i < numSamples; i++){\n        float t = i / (numSamples - 1.0);\n        vec2Array[i] = lerp(-pt, pt, t);\n    }\n    \n}\n\nvoid main(){\n    vec2 Offsets[13];\n    OffSetData(angle, Offsets);\n\n    const float bleedingBias = 0.02;\n    //const float bleedingBias = 5.0;\n    const float bleedingMult = 30.0;\n\n    vec4 centerPixel = texture(CoCMap, f_texcoord);\n    float centerDepth = texture(DepthSample, f_texcoord).r;\n\n    vec4 color = vec4(0.0);\n    float totalWeight = 0.0;\n\n    float numSamples = 13.0;\n    for(int t = 0; t < numSamples; t++){\n        vec2 offset = Offsets[t];\n\n        vec2 sampleCoords = f_texcoord + offset * centerPixel.a;\n\n        vec4 samplePixel = texture(CoCMap, sampleCoords);\n        float sampleDepth = texture(DepthSample, sampleCoords).r;\n        vec4 sampleColor = texture(ColorTarget, sampleCoords);\n\n        float weight = sampleDepth < centerDepth ? samplePixel.a * bleedingMult : 1.0;\n        weight = (centerPixel.a > samplePixel.a + bleedingBias) ? weight : 1.0;\n        weight = saturate(weight);\n\n        color += sampleColor * weight;\n        totalWeight += weight;\n    }\n\n    Output = color / totalWeight;\n}"
+          },
+          "Source File Name": {
+            "name": "Source File Name",
+            "valueType": "string",
+            "flags": 0,
+            "direction": 0,
+            "evaluationMode": 0,
+            "expression": "",
+            "uiOrder": 0,
+            "constantValue": "C:/Users/siim95/Desktop/Flair alpha/DepthOfFieldSiim/DepthofFieldShaders/Polygonal Aperture shapes DoF/PolygonalAperturesBokehDoF.glsl"
+          },
+          "Interface Description": {
+            "name": "Interface Description",
+            "valueType": "string",
+            "flags": 0,
+            "direction": 0,
+            "evaluationMode": 0,
+            "expression": "",
+            "uiOrder": 0,
+            "constantValue": "\noutputs = [\"Output\"]\n\n[[textures]]\nname = \"CoCMap\"\naddressU = \"clamp\"\naddressV = \"clamp\"\nminFilter = \"linear\"\nmagFilter = \"linear\"\n\n[[textures]]\nname = \"ColorTarget\"\naddressU = \"clamp\"\naddressV = \"clamp\"\nminFilter = \"linear\"\nmagFilter = \"linear\"\n\n[[textures]]\nname = \"DepthSample\"\naddressU = \"clamp\"\naddressV = \"clamp\"\nminFilter = \"linear\"\nmagFilter = \"linear\"\n\n[[uniforms]]\nname = \"angle\"\ntype = \"float\"\nmin = 0.0\nmax = 90.0\n"
+          },
+          "Output": {
+            "name": "Output",
+            "valueType": "Image",
+            "flags": 2,
+            "direction": 1,
+            "evaluationMode": 1,
+            "expression": "",
+            "uiOrder": 0
+          },
+          "i:angle": {
+            "name": "i:angle",
+            "valueType": "float",
+            "flags": 0,
+            "direction": 0,
+            "evaluationMode": 0,
+            "expression": "",
+            "uiOrder": 0,
+            "constantValue": 90.00000
+          },
+          "i:CoCMap": {
+            "name": "i:CoCMap",
+            "valueType": "Image",
+            "flags": 2,
+            "direction": 0,
+            "evaluationMode": 2,
+            "expression": "",
+            "uiOrder": 0
+          },
+          "i:ColorTarget": {
+            "name": "i:ColorTarget",
+            "valueType": "Image",
+            "flags": 2,
+            "direction": 0,
+            "evaluationMode": 2,
+            "expression": "",
+            "uiOrder": 0
+          },
+          "i:DepthSample": {
+            "name": "i:DepthSample",
+            "valueType": "Image",
+            "flags": 2,
+            "direction": 0,
+            "evaluationMode": 2,
+            "expression": "",
+            "uiOrder": 0
+          }
+        },
+        "nodes": [
+
+        ],
+        "connections": [
+
+        ]
+      },
+      {
+        "name": "Shader",
+        "flags": 0,
+        "uiPositionX": 90,
+        "uiPositionY": 120,
+        "opTypeName": "io.artineering.flair.ShaderOp",
+        "plugs": {
+          "Source Code": {
+            "name": "Source Code",
+            "valueType": "string",
+            "flags": 0,
+            "direction": 0,
+            "evaluationMode": 0,
+            "expression": "",
+            "uiOrder": 0,
+            "constantValue": "/* interface\noutputs = [\"Output\"]\n\n[[textures]]\nname = \"ColorTargetA\"\naddressU = \"clamp\"\naddressV = \"clamp\"\nminFilter = \"linear\"\nmagFilter = \"linear\"\n\n[[textures]]\nname = \"ColorTargetB\"\naddressU = \"clamp\"\naddressV = \"clamp\"\nminFilter = \"linear\"\nmagFilter = \"linear\"\n*/\n\nuniform sampler2D ColorTargetA;\nuniform sampler2D ColorTargetB;\n\nout vec4 Output;\n\n\nvoid main(){\n    vec4 colorMapA = texture(ColorTargetA, f_texcoord);\n    vec4 colorMapB = texture(ColorTargetB, f_texcoord);\n\n    Output = min(colorMapA, colorMapB);\n}"
+          },
+          "Source File Name": {
+            "name": "Source File Name",
+            "valueType": "string",
+            "flags": 0,
+            "direction": 0,
+            "evaluationMode": 0,
+            "expression": "",
+            "uiOrder": 0,
+            "constantValue": "C:/Users/siim95/Desktop/Flair alpha/DepthOfFieldSiim/DepthofFieldShaders/Polygonal Aperture shapes DoF/DepthOfFieldFinal_PS.glsl"
+          },
+          "Interface Description": {
+            "name": "Interface Description",
+            "valueType": "string",
+            "flags": 0,
+            "direction": 0,
+            "evaluationMode": 0,
+            "expression": "",
+            "uiOrder": 0,
+            "constantValue": "\noutputs = [\"Output\"]\n\n[[textures]]\nname = \"ColorTargetA\"\naddressU = \"clamp\"\naddressV = \"clamp\"\nminFilter = \"linear\"\nmagFilter = \"linear\"\n\n[[textures]]\nname = \"ColorTargetB\"\naddressU = \"clamp\"\naddressV = \"clamp\"\nminFilter = \"linear\"\nmagFilter = \"linear\"\n"
+          },
+          "Output": {
+            "name": "Output",
+            "valueType": "Image",
+            "flags": 2,
+            "direction": 1,
+            "evaluationMode": 1,
+            "expression": "",
+            "uiOrder": 0
+          },
+          "i:ColorTargetA": {
+            "name": "i:ColorTargetA",
+            "valueType": "Image",
+            "flags": 2,
+            "direction": 0,
+            "evaluationMode": 2,
+            "expression": "",
+            "uiOrder": 0
+          },
+          "i:ColorTargetB": {
+            "name": "i:ColorTargetB",
+            "valueType": "Image",
+            "flags": 2,
+            "direction": 0,
+            "evaluationMode": 2,
+            "expression": "",
+            "uiOrder": 0
+          }
+        },
+        "nodes": [
+
+        ],
+        "connections": [
+
+        ]
+      }
+    ],
+    "connections": [
+      "ColorTarget/C",
+      "CoCmap/i:ColorTarget",
+      "AOVTarget/C",
+      "CoCmap/i:AOVTarget",
+      "ColorTarget/C",
+      "FirstPass/i:ColorTarget",
+      "CoCmap/COCMap",
+      "FirstPass/i:CoCMap",
+      "AOVTarget/C",
+      "FirstPass/i:DepthSample",
+      "Shader/Output",
+      "Display/Input",
+      "CoCmap/COCMap",
+      "SecondPass/i:CoCMap",
+      "FirstPass/Output",
+      "SecondPass/i:ColorTarget",
+      "AOVTarget/C",
+      "SecondPass/i:DepthSample",
+      "SecondPass/Output",
+      "Shader/i:ColorTargetA",
+      "ColorTarget/C",
+      "Shader/i:ColorTargetB"
+    ]
+  }
+}

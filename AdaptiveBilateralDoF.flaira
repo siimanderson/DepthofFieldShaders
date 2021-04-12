@@ -1,0 +1,500 @@
+{
+  "root": {
+    "name": "",
+    "flags": 0,
+    "uiPositionX": 0,
+    "uiPositionY": 0,
+    "plugs": {
+
+    },
+    "nodes": [
+      {
+        "name": "_settings",
+        "flags": 1,
+        "uiPositionX": 0,
+        "uiPositionY": 0,
+        "plugs": {
+          "projectDirectory": {
+            "name": "projectDirectory",
+            "valueType": "string",
+            "flags": 0,
+            "direction": 0,
+            "evaluationMode": 0,
+            "expression": "",
+            "uiOrder": 0,
+            "constantValue": ""
+          },
+          "worldScale_": {
+            "name": "worldScale_",
+            "valueType": "float",
+            "flags": 0,
+            "direction": 0,
+            "evaluationMode": 0,
+            "expression": "",
+            "uiOrder": 0,
+            "constantValue": 1.000000
+          },
+          "useCustomResolution": {
+            "name": "useCustomResolution",
+            "valueType": "bool",
+            "flags": 0,
+            "direction": 0,
+            "evaluationMode": 0,
+            "expression": "",
+            "uiOrder": 0,
+            "constantValue": true
+          },
+          "imageWidth": {
+            "name": "imageWidth",
+            "valueType": "int",
+            "flags": 0,
+            "direction": 0,
+            "evaluationMode": 0,
+            "expression": "",
+            "uiOrder": 0,
+            "constantValue": 1440
+          },
+          "imageHeight": {
+            "name": "imageHeight",
+            "valueType": "int",
+            "flags": 0,
+            "direction": 0,
+            "evaluationMode": 0,
+            "expression": "",
+            "uiOrder": 0,
+            "constantValue": 1080
+          },
+          "startFrame": {
+            "name": "startFrame",
+            "valueType": "int",
+            "flags": 0,
+            "direction": 0,
+            "evaluationMode": 0,
+            "expression": "",
+            "uiOrder": 0,
+            "constantValue": 0
+          },
+          "endFrame": {
+            "name": "endFrame",
+            "valueType": "int",
+            "flags": 0,
+            "direction": 0,
+            "evaluationMode": 0,
+            "expression": "",
+            "uiOrder": 0,
+            "constantValue": 0
+          },
+          "byFrame": {
+            "name": "byFrame",
+            "valueType": "int",
+            "flags": 0,
+            "direction": 0,
+            "evaluationMode": 0,
+            "expression": "",
+            "uiOrder": 0,
+            "constantValue": 0
+          },
+          "numOfPadding": {
+            "name": "numOfPadding",
+            "valueType": "int",
+            "flags": 0,
+            "direction": 0,
+            "evaluationMode": 0,
+            "expression": "",
+            "uiOrder": 0,
+            "constantValue": 0
+          },
+          "renumberFrames": {
+            "name": "renumberFrames",
+            "valueType": "bool",
+            "flags": 0,
+            "direction": 0,
+            "evaluationMode": 0,
+            "expression": "",
+            "uiOrder": 0,
+            "constantValue": false
+          },
+          "newFrameNumber": {
+            "name": "newFrameNumber",
+            "valueType": "int",
+            "flags": 0,
+            "direction": 0,
+            "evaluationMode": 0,
+            "expression": "",
+            "uiOrder": 0,
+            "constantValue": 0
+          }
+        },
+        "nodes": [
+
+        ],
+        "connections": [
+
+        ]
+      },
+      {
+        "name": "ColorTarget",
+        "flags": 0,
+        "uiPositionX": 105,
+        "uiPositionY": -160,
+        "opTypeName": "io.artineering.flair.Read",
+        "plugs": {
+          "imageFilePath": {
+            "name": "imageFilePath",
+            "valueType": "string",
+            "flags": 0,
+            "direction": 0,
+            "evaluationMode": 0,
+            "expression": "",
+            "uiOrder": 0,
+            "constantValue": "C:/Users/siim95/Desktop/Flair alpha/aovs/Spherebot_Flair/Spherebot_720.shotcam.colorTarget.0063.exr"
+          },
+          "requestedFormat": {
+            "name": "requestedFormat",
+            "valueType": "int",
+            "flags": 0,
+            "direction": 0,
+            "evaluationMode": 0,
+            "expression": "",
+            "uiOrder": 0,
+            "constantValue": 0
+          },
+          "C": {
+            "name": "C",
+            "valueType": "Image",
+            "flags": 2,
+            "direction": 1,
+            "evaluationMode": 1,
+            "expression": "",
+            "uiOrder": 0
+          }
+        },
+        "nodes": [
+
+        ],
+        "connections": [
+
+        ]
+      },
+      {
+        "name": "_globals",
+        "flags": 1,
+        "uiPositionX": 0,
+        "uiPositionY": 0,
+        "plugs": {
+
+        },
+        "nodes": [
+
+        ],
+        "connections": [
+
+        ]
+      },
+      {
+        "name": "AOVTarget",
+        "flags": 0,
+        "uiPositionX": 280,
+        "uiPositionY": -145,
+        "opTypeName": "io.artineering.flair.Read",
+        "plugs": {
+          "imageFilePath": {
+            "name": "imageFilePath",
+            "valueType": "string",
+            "flags": 0,
+            "direction": 0,
+            "evaluationMode": 0,
+            "expression": "",
+            "uiOrder": 0,
+            "constantValue": "C:/Users/siim95/Desktop/Flair alpha/aovs/Spherebot_Flair/Spherebot_720.shotcam.aovTarget.0063.exr"
+          },
+          "requestedFormat": {
+            "name": "requestedFormat",
+            "valueType": "int",
+            "flags": 0,
+            "direction": 0,
+            "evaluationMode": 0,
+            "expression": "",
+            "uiOrder": 0,
+            "constantValue": 0
+          },
+          "C": {
+            "name": "C",
+            "valueType": "Image",
+            "flags": 2,
+            "direction": 1,
+            "evaluationMode": 1,
+            "expression": "",
+            "uiOrder": 0
+          }
+        },
+        "nodes": [
+
+        ],
+        "connections": [
+
+        ]
+      },
+      {
+        "name": "DCoC",
+        "flags": 0,
+        "uiPositionX": 105,
+        "uiPositionY": -15,
+        "opTypeName": "io.artineering.flair.ShaderOp",
+        "plugs": {
+          "Source Code": {
+            "name": "Source Code",
+            "valueType": "string",
+            "flags": 0,
+            "direction": 0,
+            "evaluationMode": 0,
+            "expression": "",
+            "uiOrder": 0,
+            "constantValue": "/* interface\noutputs = [\"DCoC\"]\n\n[[textures]]\nname = \"ColorTarget\"\n\n[[textures]]\nname = \"AOVTarget\"\n\n[[uniforms]]\nname = \"FocalLength\"\ntype = \"float\"\nmin = 0.01\nmax = 0.1\n\n[[uniforms]]\nname = \"LensDiameter\"\ntype = \"float\"\nmin = 0.1\nmax = 1.0\n\n[[uniforms]]\nname = \"FocusRegionDepth\"\ntype = \"float\"\nmin = 0.0\nmax = 1.0\n*/\n\nuniform sampler2D ColorTarget;\nuniform sampler2D AOVTarget;\n\nuniform float FocalLength;\nuniform float LensDiameter;\nuniform float FocusRegionDepth;\n\nout vec4 DCoC;\n\nfloat CirceOfConfusion(vec2 pixelCoordinate, float focalLength){\n    float depthInMayaUnits = texture(AOVTarget, pixelCoordinate).r;\n    float remapedDepth = 1.0 / depthInMayaUnits;\n    //float remapedDepth = remap(depthInMayaUnits, 0.0, 100.0, 0.0, 1.0);\n\n    float topPartOfEquation = LensDiameter * focalLength * (FocusRegionDepth - remapedDepth);\n    float lowerPartOfEquation = FocusRegionDepth * (remapedDepth - focalLength);\n\n    return abs(topPartOfEquation / lowerPartOfEquation);\n}\n\nvoid main(){\n\n    //Circle of Confusion calculations\n    float CoC = CirceOfConfusion(f_texcoord, FocalLength);\n\n    DCoC = vec4(CoC);\n}"
+          },
+          "Source File Name": {
+            "name": "Source File Name",
+            "valueType": "string",
+            "flags": 0,
+            "direction": 0,
+            "evaluationMode": 0,
+            "expression": "",
+            "uiOrder": 0,
+            "constantValue": "C:/Users/siim95/Desktop/Flair alpha/DepthOfFieldSiim/DepthofFieldShaders/Adaptive Bilateral DoF/DCoCTexture.glsl"
+          },
+          "Interface Description": {
+            "name": "Interface Description",
+            "valueType": "string",
+            "flags": 0,
+            "direction": 0,
+            "evaluationMode": 0,
+            "expression": "",
+            "uiOrder": 0,
+            "constantValue": "\noutputs = [\"DCoC\"]\n\n[[textures]]\nname = \"ColorTarget\"\n\n[[textures]]\nname = \"AOVTarget\"\n\n[[uniforms]]\nname = \"FocalLength\"\ntype = \"float\"\nmin = 0.01\nmax = 0.1\n\n[[uniforms]]\nname = \"LensDiameter\"\ntype = \"float\"\nmin = 0.1\nmax = 1.0\n\n[[uniforms]]\nname = \"FocusRegionDepth\"\ntype = \"float\"\nmin = 0.0\nmax = 1.0\n"
+          },
+          "i:FocalLength": {
+            "name": "i:FocalLength",
+            "valueType": "float",
+            "flags": 0,
+            "direction": 0,
+            "evaluationMode": 0,
+            "expression": "",
+            "uiOrder": 0,
+            "constantValue": 0.04100000
+          },
+          "i:LensDiameter": {
+            "name": "i:LensDiameter",
+            "valueType": "float",
+            "flags": 0,
+            "direction": 0,
+            "evaluationMode": 0,
+            "expression": "",
+            "uiOrder": 0,
+            "constantValue": 0.2760000
+          },
+          "i:FocusRegionDepth": {
+            "name": "i:FocusRegionDepth",
+            "valueType": "float",
+            "flags": 0,
+            "direction": 0,
+            "evaluationMode": 0,
+            "expression": "",
+            "uiOrder": 0,
+            "constantValue": 0.2550000
+          },
+          "i:ColorTarget": {
+            "name": "i:ColorTarget",
+            "valueType": "Image",
+            "flags": 2,
+            "direction": 0,
+            "evaluationMode": 2,
+            "expression": "",
+            "uiOrder": 0
+          },
+          "i:AOVTarget": {
+            "name": "i:AOVTarget",
+            "valueType": "Image",
+            "flags": 2,
+            "direction": 0,
+            "evaluationMode": 2,
+            "expression": "",
+            "uiOrder": 0
+          },
+          "DCoC": {
+            "name": "DCoC",
+            "valueType": "Image",
+            "flags": 2,
+            "direction": 1,
+            "evaluationMode": 1,
+            "expression": "",
+            "uiOrder": 0
+          }
+        },
+        "nodes": [
+
+        ],
+        "connections": [
+
+        ]
+      },
+      {
+        "name": "Display",
+        "flags": 0,
+        "uiPositionX": 165,
+        "uiPositionY": 130,
+        "opTypeName": "io.artineering.flair.DisplayOp",
+        "plugs": {
+          "Input": {
+            "name": "Input",
+            "valueType": "Image",
+            "flags": 2,
+            "direction": 0,
+            "evaluationMode": 2,
+            "expression": "",
+            "uiOrder": 0
+          },
+          "Output": {
+            "name": "Output",
+            "valueType": "Image",
+            "flags": 2,
+            "direction": 1,
+            "evaluationMode": 1,
+            "expression": "",
+            "uiOrder": 0
+          }
+        },
+        "nodes": [
+
+        ],
+        "connections": [
+
+        ]
+      },
+      {
+        "name": "Shader",
+        "flags": 0,
+        "uiPositionX": 285,
+        "uiPositionY": 50,
+        "opTypeName": "io.artineering.flair.ShaderOp",
+        "plugs": {
+          "Source Code": {
+            "name": "Source Code",
+            "valueType": "string",
+            "flags": 0,
+            "direction": 0,
+            "evaluationMode": 0,
+            "expression": "",
+            "uiOrder": 0,
+            "constantValue": "/* interface\noutputs = [\"Output\"]\n\n[[textures]]\nname = \"ColorTarget\"\n\n[[textures]]\nname = \"AOVTarget\"\n\n[[textures]]\nname = \"DCoC\"\n\n[[uniforms]]\nname = \"SigmaS\"\ntype = \"int\"\nmin = 1\nmax = 20\n\n[[uniforms]]\nname = \"SigmaL\"\ntype = \"int\"\nmin = 1\nmax = 20\n\n[[uniforms]]\nname = \"FocusDistance\"\ntype = \"float\"\nmin = 0.0\nmax = 1.0\n\n*/\n\nuniform sampler2D ColorTarget;\nuniform sampler2D AOVTarget;\nuniform sampler2D DCoC;\n\nuniform int SigmaS;\nuniform int SigmaL;\nuniform float FocusDistance;\n\nout vec4 Output;\n\nfloat equationBilateral(float distanceBetweenPixels, float pixelDepth, float qPixelDepth, float offset){\n    float s = exp(-(distanceBetweenPixels * distanceBetweenPixels) / (2.0 * SigmaS * SigmaS));\n    float v = exp(-(pow(qPixelDepth - pixelDepth - offset, 2) / (2.0 * SigmaL * SigmaL)));\n    return s * v;\n}\n\nvec4 pixelColor(float CoC, vec4 pixel, float offset){\n    vec4 sum = vec4(0);\n    float bilateralValues = 0.0;\n    \n    for (float x = -CoC; x <= CoC; x++) {\n        for (float y = -CoC; y <= CoC; y++) {\n            vec4 qPixel = texture(ColorTarget, f_texcoord + vec2(x, y)* u_texel);\n            float distanceBetweenPixels = length(vec2(qPixel.x - pixel.x, qPixel.y - pixel.y));//Use maybe abs?\n\n            float Bilateral = equationBilateral(distanceBetweenPixels, pixel.z, qPixel.z, offset);\n\n            float normalise = 1.0/(sqrt(2*PI)*SigmaS);\n            \n            sum += qPixel * Bilateral;\n            bilateralValues += Bilateral;\n        }\n    }\n    return sum / bilateralValues;\n}\n\nfloat meanDepth(float CoC) {\n    float sum = 0.0;\n    int numberOfValues = 0;\n\n    for (float x = -CoC; x <= CoC; x++) {\n        for (float y = -CoC; y <= CoC; y++) {\n            sum += texture(ColorTarget, f_texcoord + vec2(x, y)* u_texel).z;\n            numberOfValues++;\n        }\n    }\n    return sum / numberOfValues;\n}\n\nvoid main(){\n\n    vec4 pixel = vec4(0.0);\n    //pixelDepth  \n    float pDepth = texture(AOVTarget, f_texcoord).r;\n    float pRemapedDepth = remap(pDepth, 25.0, 100.0, 0.0, 1.0);\n    // Pixel Circle of Confusion\n    float CoC = texture(DCoC, f_texcoord).x * 5.0;\n    // Pixel color\n    vec4 color = texture(ColorTarget, f_texcoord);\n\n    if (pRemapedDepth > FocusDistance) {\n        float offset = meanDepth(CoC*5.0) - color.z;\n        pixel = pixelColor(CoC, color, offset);\n    } else {\n        pixel = color;\n    }\n    //float offset = meanDepth(CoC*5.0) - color.z;\n    //pixel = pixelColor(CoC, color, 0);\n    Output = pixel;\n}"
+          },
+          "Source File Name": {
+            "name": "Source File Name",
+            "valueType": "string",
+            "flags": 0,
+            "direction": 0,
+            "evaluationMode": 0,
+            "expression": "",
+            "uiOrder": 0,
+            "constantValue": "C:/Users/siim95/Desktop/Flair alpha/DepthOfFieldSiim/DepthofFieldShaders/Adaptive Bilateral DoF/AdaptiveBilateralDepthOfField.glsl"
+          },
+          "Interface Description": {
+            "name": "Interface Description",
+            "valueType": "string",
+            "flags": 0,
+            "direction": 0,
+            "evaluationMode": 0,
+            "expression": "",
+            "uiOrder": 0,
+            "constantValue": "\noutputs = [\"Output\"]\n\n[[textures]]\nname = \"ColorTarget\"\n\n[[textures]]\nname = \"AOVTarget\"\n\n[[textures]]\nname = \"DCoC\"\n\n[[uniforms]]\nname = \"SigmaS\"\ntype = \"int\"\nmin = 1\nmax = 20\n\n[[uniforms]]\nname = \"SigmaL\"\ntype = \"int\"\nmin = 1\nmax = 20\n\n[[uniforms]]\nname = \"FocusDistance\"\ntype = \"float\"\nmin = 0.0\nmax = 1.0\n\n"
+          },
+          "Output": {
+            "name": "Output",
+            "valueType": "Image",
+            "flags": 2,
+            "direction": 1,
+            "evaluationMode": 1,
+            "expression": "",
+            "uiOrder": 0
+          },
+          "i:FocusDistance": {
+            "name": "i:FocusDistance",
+            "valueType": "float",
+            "flags": 0,
+            "direction": 0,
+            "evaluationMode": 0,
+            "expression": "",
+            "uiOrder": 0,
+            "constantValue": 0.2790000
+          },
+          "i:ColorTarget": {
+            "name": "i:ColorTarget",
+            "valueType": "Image",
+            "flags": 2,
+            "direction": 0,
+            "evaluationMode": 2,
+            "expression": "",
+            "uiOrder": 0
+          },
+          "i:AOVTarget": {
+            "name": "i:AOVTarget",
+            "valueType": "Image",
+            "flags": 2,
+            "direction": 0,
+            "evaluationMode": 2,
+            "expression": "",
+            "uiOrder": 0
+          },
+          "i:DCoC": {
+            "name": "i:DCoC",
+            "valueType": "Image",
+            "flags": 2,
+            "direction": 0,
+            "evaluationMode": 2,
+            "expression": "",
+            "uiOrder": 0
+          },
+          "i:SigmaS": {
+            "name": "i:SigmaS",
+            "valueType": "int",
+            "flags": 0,
+            "direction": 0,
+            "evaluationMode": 0,
+            "expression": "",
+            "uiOrder": 0,
+            "constantValue": 13
+          },
+          "i:SigmaL": {
+            "name": "i:SigmaL",
+            "valueType": "int",
+            "flags": 0,
+            "direction": 0,
+            "evaluationMode": 0,
+            "expression": "",
+            "uiOrder": 0,
+            "constantValue": 17
+          }
+        },
+        "nodes": [
+
+        ],
+        "connections": [
+
+        ]
+      }
+    ],
+    "connections": [
+      "ColorTarget/C",
+      "DCoC/i:ColorTarget",
+      "AOVTarget/C",
+      "DCoC/i:AOVTarget",
+      "Shader/Output",
+      "Display/Input",
+      "ColorTarget/C",
+      "Shader/i:ColorTarget",
+      "AOVTarget/C",
+      "Shader/i:AOVTarget",
+      "DCoC/DCoC",
+      "Shader/i:DCoC"
+    ]
+  }
+}
