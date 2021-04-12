@@ -37,7 +37,7 @@ max = 0.04
 name = "MaximumCoCDiameter"
 type = "float"
 min = 0.0
-max = 1.0
+max = 0.04
 */
 
 uniform sampler2D ColorTarget;
