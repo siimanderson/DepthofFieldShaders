@@ -14,12 +14,6 @@ min = 0.1
 max = 0.8
 
 [[uniforms]]
-name = "Scale"
-type = "float"
-min = 0.1
-max = 1.0
-
-[[uniforms]]
 name = "FocalLength"
 type = "float"
 min = 0.01
@@ -30,8 +24,9 @@ uniform sampler2D CoCMap;
 uniform sampler2D BlurredDepthMap;
 
 uniform float Cmin;
-uniform float Scale;
+//uniform float Scale;
 uniform float FocalLength;
+#define Scale 1.0
 
 out vec4 WeightMap;
 
@@ -87,8 +82,15 @@ void main() {
     float pixelValue = texelFetch(CoCMap, ivec2(gl_FragCoord.xy), 0).r;
     float neighbour = texelFetch(CoCMap, ivec2(gl_FragCoord.x + 1.0, gl_FragCoord.y), 0).r;
     float pinholePixelValue = texelFetch(BlurredDepthMap, ivec2(u_resolution.x - gl_FragCoord.x, u_resolution.y - gl_FragCoord.y), 0).r;
-    float pinholeNeighbour = texelFetch(BlurredDepthMap, ivec2(u_resolution.x - (gl_FragCoord.x + 1.0), u_resolution.y - (gl_FragCoord.y)), 0).r;
+    float pinholeNeighbour = texelFetch(BlurredDepthMap, ivec2(u_resolution.x - (gl_FragCoord.x + 1.0), u_resolution.y - gl_FragCoord.y), 0).r;
+    /*
     
+[[uniforms]]
+name = "Scale"
+type = "float"
+min = 0.1
+max = 2.0
+*/
 
     // Weights are computed based on cases
     // 1. p, q ∈ IR or FOR or BOR
@@ -98,7 +100,7 @@ void main() {
     // IR - In focus region, FOR - Foreground out of focus region, BOR - background out of focus region
 
     // case 1
-    if (D1 > pixelValue && D1 > neighbour) {
+    if (D1 >= pixelValue && D1 >= neighbour) {
         alpha = case1(pixelValue, neighbour);
     }
     if (D2 > pixelValue && D2 > neighbour) {
