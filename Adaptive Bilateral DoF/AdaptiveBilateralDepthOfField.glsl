@@ -19,8 +19,8 @@ max = 20
 [[uniforms]]
 name = "SigmaL"
 type = "int"
-min = 1
-max = 20
+min = 15
+max = 40
 
 [[uniforms]]
 name = "FocusDistance"
@@ -53,7 +53,7 @@ vec4 pixelColor(float CoC, vec4 pixel, float offset){
     for (float x = -CoC; x <= CoC; x++) {
         for (float y = -CoC; y <= CoC; y++) {
             vec4 qPixel = texture(ColorTarget, f_texcoord + vec2(x, y)* u_texel);
-            float distanceBetweenPixels = length(vec2(qPixel.x - pixel.x, qPixel.y - pixel.y));//Use maybe abs?
+            float distanceBetweenPixels = length(vec2(qPixel.x - pixel.x, qPixel.y - pixel.y));
 
             float Bilateral = equationBilateral(distanceBetweenPixels, pixel.z, qPixel.z, offset);
 
@@ -72,7 +72,7 @@ float meanDepth(float CoC) {
 
     for (float x = -CoC; x <= CoC; x++) {
         for (float y = -CoC; y <= CoC; y++) {
-            sum += texture(ColorTarget, f_texcoord + vec2(x, y)* u_texel).z;
+            sum += texture(AOVTarget, f_texcoord + vec2(x, y)* u_texel).r;
             numberOfValues++;
         }
     }
@@ -91,7 +91,7 @@ void main(){
     vec4 color = texture(ColorTarget, f_texcoord);
 
     if (pRemapedDepth > FocusDistance) {
-        float offset = meanDepth(CoC*5.0) - color.z;
+        float offset = meanDepth(CoC*5.0) - pRemapedDepth;
         pixel = pixelColor(CoC, color, offset);
     } else {
         pixel = color;
