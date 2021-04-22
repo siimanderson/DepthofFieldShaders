@@ -8,7 +8,7 @@ name = "AOVTarget"
 name = "Scale"
 type = "float"
 min = 0.1
-max = 5.0
+max = 1.5
 
 [[uniforms]]
 name = "FocalLength"

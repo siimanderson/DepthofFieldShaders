@@ -41,7 +41,7 @@ void main(){
     vec4 blur = texture(blurredTexture, f_texcoord);
     //pixelDepth  
     float pDepth = texture(AOVTarget, f_texcoord).r;
-    float pRemapedDepth = remap(pDepth, 25.0, 100.0, 0.0, 1.0);
+    float pRemapedDepth = remap(pDepth, 25.0, 300.0, 0.0, 1.0);
 
     if (pRemapedDepth > FocusDistance) {
         color = lerp(colorTarget, blur, blend);

@@ -26,5 +26,5 @@ void main(){
     vec4 colorMapA = texture(ColorTargetA, f_texcoord);
     vec4 colorMapB = texture(ColorTargetB, f_texcoord);
 
-    Output = min(colorMapA, colorMapB);
+    Output = max(colorMapA, colorMapB);
 }

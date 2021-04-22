@@ -44,12 +44,11 @@ void main () {
 
     //vec3 viewDir = viewDirection(f_texcoord);
     float DepthInMayaU = texture(AOVTarget, f_texcoord).r;
-    float depthRemaped = saturate(remap(DepthInMayaU, 25.0, 100.0, 0.0, 1.0));
+    float depthRemaped = saturate(remap(DepthInMayaU, 25.0, 300.0, 0.0, 1.0));
     vec4 color = vec4(0.0);
     
 
-    if (depthRemaped <= blurDepth
-){
+    if (depthRemaped >= blurDepth){
         color = box(Radius);
     }
     /* else if (depth >= Background){

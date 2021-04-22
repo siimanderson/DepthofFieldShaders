@@ -11,16 +11,10 @@ name = "AOVTarget"
 name = "DCoC"
 
 [[uniforms]]
-name = "SigmaS"
+name = "SharpeningFactor"
 type = "int"
 min = 1
 max = 20
-
-[[uniforms]]
-name = "SigmaL"
-type = "int"
-min = 15
-max = 40
 
 [[uniforms]]
 name = "FocusDistance"
@@ -34,19 +28,20 @@ uniform sampler2D ColorTarget;
 uniform sampler2D AOVTarget;
 uniform sampler2D DCoC;
 
-uniform int SigmaS;
-uniform int SigmaL;
+uniform int SharpeningFactor;
 uniform float FocusDistance;
+
+#define DepthFactor 20
 
 out vec4 Output;
 
-float equationBilateral(float distanceBetweenPixels, float pixelDepth, float qPixelDepth, float offset){
-    float s = exp(-(distanceBetweenPixels * distanceBetweenPixels) / (2.0 * SigmaS * SigmaS));
-    float v = exp(-(pow(qPixelDepth - pixelDepth - offset, 2) / (2.0 * SigmaL * SigmaL)));
+float equationBilateral(float distanceBetweenPixels, float pixelDepth, float qPixelDepth){
+    float s = exp(-(distanceBetweenPixels * distanceBetweenPixels) / (2.0 * SharpeningFactor * SharpeningFactor));
+    float v = exp(-(pow(qPixelDepth - pixelDepth, 2) / (2.0 * DepthFactor * DepthFactor)));
     return s * v;
 }
 
-vec4 pixelColor(float CoC, vec4 pixel, float offset){
+vec4 pixelColor(float CoC, vec4 pixel){
     vec4 sum = vec4(0);
     float bilateralValues = 0.0;
     
@@ -55,9 +50,9 @@ vec4 pixelColor(float CoC, vec4 pixel, float offset){
             vec4 qPixel = texture(ColorTarget, f_texcoord + vec2(x, y)* u_texel);
             float distanceBetweenPixels = length(vec2(qPixel.x - pixel.x, qPixel.y - pixel.y));
 
-            float Bilateral = equationBilateral(distanceBetweenPixels, pixel.z, qPixel.z, offset);
+            float Bilateral = equationBilateral(distanceBetweenPixels, pixel.z, qPixel.z);
 
-            float normalise = 1.0/(sqrt(2*PI)*SigmaS);
+            float normalise = 1.0/(sqrt(2*PI)*SharpeningFactor);
             
             sum += qPixel * Bilateral;
             bilateralValues += Bilateral;
@@ -84,15 +79,15 @@ void main(){
     vec4 pixel = vec4(0.0);
     //pixelDepth  
     float pDepth = texture(AOVTarget, f_texcoord).r;
-    float pRemapedDepth = remap(pDepth, 25.0, 100.0, 0.0, 1.0);
+    float pRemapedDepth = remap(pDepth, 0.0, 300.0, 0.0, 1.0);
     // Pixel Circle of Confusion
     float CoC = texture(DCoC, f_texcoord).x * 5.0;
     // Pixel color
     vec4 color = texture(ColorTarget, f_texcoord);
 
     if (pRemapedDepth > FocusDistance) {
-        float offset = meanDepth(CoC*5.0) - pRemapedDepth;
-        pixel = pixelColor(CoC, color, offset);
+        //float offset = meanDepth(CoC*5.0) - pRemapedDepth;
+        pixel = pixelColor(CoC, color);
     } else {
         pixel = color;
     }

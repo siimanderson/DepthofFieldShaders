@@ -82,7 +82,7 @@ void main() {
     float pixelValue = texelFetch(CoCMap, ivec2(gl_FragCoord.xy), 0).r;
     float neighbour = texelFetch(CoCMap, ivec2(gl_FragCoord.x - 1.0, gl_FragCoord.y), 0).r;
     float pinholePixelValue = texelFetch(CoCMap, ivec2(u_resolution.x - gl_FragCoord.x, u_resolution.y - gl_FragCoord.y), 0).r;
-    float pinholeNeighbour = texelFetch(CoCMap, ivec2(u_resolution.x - (gl_FragCoord.x - 1.0), u_resolution.y - gl_FragCoord.y), 0).r;
+    float pinholeNeighbour = texelFetch(CoCMap, ivec2(u_resolution.x - (gl_FragCoord.x + 1.0), u_resolution.y - gl_FragCoord.y), 0).r;
     /*
     
 [[uniforms]]

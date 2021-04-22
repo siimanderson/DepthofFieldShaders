@@ -16,7 +16,7 @@ minFilter = "linear"
 magFilter = "linear"
 
 [[uniforms]]
-name = "FocalLengthOfLens"
+name = "FocalLength"
 type = "float"
 min = 0.01
 max = 0.05
@@ -25,13 +25,13 @@ max = 0.05
 name = "FocalDistance"
 type = "float"
 min = 0.1
-max = 1.0
+max = 5.0
 
 [[uniforms]]
 name = "ApertureSize"
 type = "float"
 min = 0.001
-max = 0.04
+max = 0.14
 
 [[uniforms]]
 name = "MaximumCoCDiameter"
@@ -43,7 +43,7 @@ max = 0.04
 uniform sampler2D ColorTarget;
 uniform sampler2D AOVTarget;
 
-uniform float FocalLengthOfLens;
+uniform float FocalLength;
 uniform float FocalDistance;
 uniform float ApertureSize;
 uniform float MaximumCoCDiameter;
@@ -57,7 +57,7 @@ void main(){
     float SceneDepth = texture(AOVTarget, f_texcoord).r;
     float remaped = remap(SceneDepth, 25.0, 100.0, 0.0, 1.0);
 
-    float CoCDiameter = ApertureSize * (abs(remaped - FocalDistance) / remaped) * (FocalLengthOfLens / (FocalDistance - FocalLengthOfLens));
+    float CoCDiameter = ApertureSize * (abs(remaped - FocalDistance) / remaped) * (FocalLength / (FocalDistance - FocalLength));
 
     float sensorHeight = 0.024;
 
